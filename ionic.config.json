@@ -1,0 +1,7 @@
+{
+  "name": "life_beyond_borders",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
