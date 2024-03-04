@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import { useIsMobile } from './hooks/useIsMobile';
 import Menu from './components/Menu';
 import Page from './pages/Page';
+import Profile from './pages/Profile/profile';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,17 +33,24 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
-              <Redirect to="/folder/Inbox" />
-            </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
-            </Route>
-          </IonRouterOutlet>
-        </IonSplitPane>
+        {isMobile ? (
+          <IonSplitPane contentId="main">
+            <Menu />
+            <IonRouterOutlet id="main">
+              <Route exact path="/" component={Profile} />
+              <Route exact path="/profile" component={Profile} />
+              <Route path="/folder/:name" exact={true} component={Page} />
+            </IonRouterOutlet>
+          </IonSplitPane>
+        ) : (
+          <>
+            <IonRouterOutlet id="main">
+              <Route exact path="/" component={Profile} />
+              <Route exact path="/profile" component={Profile} />
+              <Route path="/folder/:name" exact={true} component={Page} />
+            </IonRouterOutlet>
+          </>
+        )}
       </IonReactRouter>
     </IonApp>
   );
