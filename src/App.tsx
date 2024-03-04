@@ -1,6 +1,7 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { useIsMobile } from './hooks/useIsMobile';
 import Menu from './components/Menu';
 import Page from './pages/Page';
 
@@ -26,6 +27,8 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => {
+  const isMobile = useIsMobile();
+
   return (
     <IonApp>
       <IonReactRouter>
