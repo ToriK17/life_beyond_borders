@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   IonContent,
   IonIcon,
@@ -9,10 +10,10 @@ import {
   IonMenuToggle,
   IonNote,
 } from '@ionic/react';
-
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { logoInstagram, logoFacebook, logoYoutube, archiveSharp, imagesOutline, imagesSharp, personOutline, personSharp, videocamOutline, videocamSharp, chatbubbleOutline } from 'ionicons/icons';
 import './Menu.css';
+
 
 interface AppPage {
   url: string;
@@ -23,44 +24,30 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    title: 'Seeking Work',
+    url: '/seekingWork',
+    iosIcon: imagesOutline,
+    mdIcon: imagesSharp
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
+    title: 'Community',
+    url: '/community',
+    iosIcon: personOutline,
+    mdIcon: personSharp
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
+    title: 'Reviews',
+    url: '/reviews',
+    iosIcon: videocamOutline,
+    mdIcon: videocamSharp
   },
   {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
+    title: 'No Contact',
+    url: '/noContact',
+    iosIcon: chatbubbleOutline,
     mdIcon: archiveSharp
-  },
-  {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
   }
 ];
-
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -69,28 +56,26 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
-          {appPages.map((appPage, index) => {
-            return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon aria-hidden="true" slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            );
-          })}
-        </IonList>
-
-        <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
-          {labels.map((label, index) => (
-            <IonItem lines="none" key={index}>
-              <IonIcon aria-hidden="true" slot="start" icon={bookmarkOutline} />
-              <IonLabel>{label}</IonLabel>
-            </IonItem>
+          <IonListHeader>New Roots</IonListHeader>
+          <IonNote>Life beyond borders</IonNote>
+          {appPages.map((appPage, index) => (
+            <IonMenuToggle key={index} autoHide={false}>
+              <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                <IonIcon aria-hidden="true" slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} style={{ color: '#fff' }} />
+                <IonLabel>{appPage.title}</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
           ))}
+        </IonList>
+        <IonList id="social-list">
+        <IonItem lines="none" href="https://www.instagram.com/kafati_art_studio/?hl=en" target="_blank" detail={false} >
+            <IonIcon slot="start" icon={logoInstagram} style={{ color: 'white' }} />
+            Instagram
+          </IonItem>
+          <IonItem lines="none" href="https://www.facebook.com/jaime.kafati.5" target="_blank" detail={false}>
+            <IonIcon slot="start" icon={logoFacebook} style={{ color: '#4267B2' }} />
+            Facebook
+          </IonItem>                                                                                                                                                                                                                                                           
         </IonList>
       </IonContent>
     </IonMenu>

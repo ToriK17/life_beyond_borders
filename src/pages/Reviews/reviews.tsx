@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Page.css';
 
-const Profile: React.FC = () => {
+
+const reviews: React.FC = () => {
 
   return (
     <IonPage>
@@ -10,7 +10,7 @@ const Profile: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{"name"}</IonTitle>
+          <IonTitle>Reviews</IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -25,4 +25,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default reviews;
