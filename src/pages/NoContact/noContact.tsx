@@ -17,7 +17,7 @@ const noContact: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{"test"}</IonTitle>
+            <IonTitle size="large">{"No Contact"}</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>

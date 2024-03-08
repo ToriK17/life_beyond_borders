@@ -17,7 +17,7 @@ const reviews: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{"test"}</IonTitle>
+            <IonTitle size="large">{"Reviews"}</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>

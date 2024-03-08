@@ -17,7 +17,7 @@ const seekingWork: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{"test"}</IonTitle>
+            <IonTitle size="large">{"Seeking Work"}</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>

@@ -13,6 +13,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import { logoInstagram, logoFacebook, logoYoutube, archiveSharp, imagesOutline, imagesSharp, personOutline, personSharp, videocamOutline, videocamSharp, chatbubbleOutline } from 'ionicons/icons';
 import './Menu.css';
+import LanguageToggle from './LanguageToggle';
 
 
 interface AppPage {
@@ -56,6 +57,7 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
+          <LanguageToggle/>
           <IonListHeader>New Roots</IonListHeader>
           <IonNote>Life beyond borders</IonNote>
           {appPages.map((appPage, index) => (

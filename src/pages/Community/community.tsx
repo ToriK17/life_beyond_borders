@@ -17,7 +17,7 @@ const community: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{"test"}</IonTitle>
+            <IonTitle size="large">{"Community"}</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>
