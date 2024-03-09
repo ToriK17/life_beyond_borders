@@ -1,7 +1,18 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { LanguageContext } from '../../components/LanguageContext';
+import { useContext } from 'react';
+import translations from './translations.json';
+
+interface Translations {
+  [key: string]: {
+    title: string;
+  };
+}
 
 
 const reviews: React.FC = () => {
+const { language } = useContext(LanguageContext);
+const message = (translations as Translations)[language].title;
 
   return (
     <IonPage>
@@ -13,11 +24,10 @@ const reviews: React.FC = () => {
           <IonTitle>Reviews</IonTitle>
         </IonToolbar>
       </IonHeader>
-
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{"Reviews"}</IonTitle>
+            <IonTitle size="large">{message}</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>

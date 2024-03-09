@@ -27,6 +27,7 @@ import './theme/variables.css';
 import community from './pages/Community/community';
 import reviews from './pages/Reviews/reviews';
 import noContact from './pages/NoContact/noContact';
+import { LanguageProvider } from './components/LanguageContext';
 
 
 setupIonicReact();
@@ -35,34 +36,36 @@ const App: React.FC = () => {
   const isMobile = useIsMobile();
 
   return (
-    <IonApp>
-      <IonReactRouter>
-        {isMobile ? (
-          <IonSplitPane contentId="main">
-            <Menu />
-            <IonRouterOutlet id="main">
-              <Route exact path="/" component={seekingWork} />
-              <Route exact path="/seekingWork" component={seekingWork} />
-              <Route exact path="/community" component={community} />
-              <Route exact path="/reviews" component={reviews} />
-              <Route exact path="/noContact" component={noContact} />
-              <Route path="/folder/:name" exact={true} component={Page} />
-            </IonRouterOutlet>
-          </IonSplitPane>
-        ) : (
-          <>
-            <IonRouterOutlet id="main">
-              <Route exact path="/" component={seekingWork} />
-              <Route exact path="/seekingWork" component={seekingWork} />
-              <Route exact path="/community" component={community} />
-              <Route exact path="/reviews" component={reviews} />
-              <Route exact path="/noContact" component={noContact} />
-              <Route path="/folder/:name" exact={true} component={Page} />
-            </IonRouterOutlet>
-          </>
-        )}
-      </IonReactRouter>
-    </IonApp>
+    <LanguageProvider>
+      <IonApp>
+        <IonReactRouter>
+          {isMobile ? (
+            <IonSplitPane contentId="main">
+              <Menu />
+              <IonRouterOutlet id="main">
+                <Route exact path="/" component={seekingWork} />
+                <Route exact path="/seekingWork" component={seekingWork} />
+                <Route exact path="/community" component={community} />
+                <Route exact path="/reviews" component={reviews} />
+                <Route exact path="/noContact" component={noContact} />
+                <Route path="/folder/:name" exact={true} component={Page} />
+              </IonRouterOutlet>
+            </IonSplitPane>
+          ) : (
+            <>
+              <IonRouterOutlet id="main">
+                <Route exact path="/" component={seekingWork} />
+                <Route exact path="/seekingWork" component={seekingWork} />
+                <Route exact path="/community" component={community} />
+                <Route exact path="/reviews" component={reviews} />
+                <Route exact path="/noContact" component={noContact} />
+                <Route path="/folder/:name" exact={true} component={Page} />
+              </IonRouterOutlet>
+            </>
+          )}
+        </IonReactRouter>
+      </IonApp>
+    </LanguageProvider>
   );
 };
 
