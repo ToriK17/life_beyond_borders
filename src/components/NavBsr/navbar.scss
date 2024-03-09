@@ -1,0 +1,59 @@
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+ion-header {
+  --ion-safe-area-top: 0px;
+}
+
+ion-title {
+  color: white !important;
+  font-family: 'Raleway';
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.navbar-links > ion-button {
+  font-family: 'Raleway';
+  --color: black !important;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+  
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.social-links ion-button {
+  margin: 0;
+  padding: 0;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+
+.toolbar-title {
+  padding-top: 2em;
+  color: Black;
+  
+  font-family: 'Raleway';
+  text-decoration: none;
+  font-size: 30px;
+}
+
+
+.title-button .button-inner {
+  text-transform: none !important;
+}

@@ -28,6 +28,7 @@ import community from './pages/Community/community';
 import reviews from './pages/Reviews/reviews';
 import noContact from './pages/NoContact/noContact';
 import { LanguageProvider } from './components/LanguageContext';
+import NavBar from './components/NavBsr/navBar';
 
 
 setupIonicReact();
@@ -53,6 +54,7 @@ const App: React.FC = () => {
             </IonSplitPane>
           ) : (
             <>
+            <NavBar />
               <IonRouterOutlet id="main">
                 <Route exact path="/" component={seekingWork} />
                 <Route exact path="/seekingWork" component={seekingWork} />
