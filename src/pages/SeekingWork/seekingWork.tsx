@@ -1,8 +1,49 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React from 'react';
+import {
+  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,
+  IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonImg
+} from '@ionic/react';
 import './seeking-work.scss';
 
-const seekingWork: React.FC = () => {
+interface ProfileCardProps {
+  picture: string;
+  name: string;
+  services: string;
+  languages: string;
+  transportation: string;
+  location: string;
+}
 
+const ProfileCard: React.FC<ProfileCardProps> = ({
+  picture, name, services, languages, transportation, location
+}) => (
+  <IonCard>
+    <IonImg src={picture} />
+    <IonCardHeader>
+      <IonCardTitle>{name}</IonCardTitle>
+      <IonCardSubtitle>{services}</IonCardSubtitle>
+    </IonCardHeader>
+    <IonCardContent>
+      Languages: {languages}<br />
+      Transportation: {transportation}<br />
+      Location: {location}
+    </IonCardContent>
+  </IonCard>
+);
+
+// Example profile data
+const profileData = [
+  {
+    picture: '/path/to/image1.jpg',
+    name: 'John Doe',
+    services: 'Graphic Design',
+    languages: 'English, Spanish',
+    transportation: 'Owns a vehicle',
+    location: 'New York, NY'
+  },
+];
+
+const SeekingWork: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -13,16 +54,13 @@ const seekingWork: React.FC = () => {
           <IonTitle>Seeking Work</IonTitle>
         </IonToolbar>
       </IonHeader>
-
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{"Seeking Work"}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        {profileData.map((profile, index) => (
+          <ProfileCard key={index} {...profile} />
+        ))}
       </IonContent>
     </IonPage>
   );
 };
 
-export default seekingWork;
+export default SeekingWork;
