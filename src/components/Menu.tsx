@@ -11,7 +11,7 @@ import {
   IonNote,
 } from '@ionic/react';
 import { useLocation } from 'react-router-dom';
-import { logoInstagram, logoFacebook, logoYoutube, archiveSharp, imagesOutline, imagesSharp, personOutline, personSharp, videocamOutline, videocamSharp, chatbubbleOutline } from 'ionicons/icons';
+import { logoInstagram, logoFacebook, logoYoutube, archiveSharp, imagesOutline, imagesSharp, personOutline, personSharp, videocamOutline, videocamSharp, chatbubbleOutline, briefcaseOutline, briefcaseSharp, peopleOutline, peopleSharp, banSharp, banOutline, starOutline, starSharp } from 'ionicons/icons';
 import './Menu.css';
 import LanguageToggle from './LanguageToggle';
 
@@ -27,26 +27,26 @@ const appPages: AppPage[] = [
   {
     title: 'Seeking Work',
     url: '/seekingWork',
-    iosIcon: imagesOutline,
-    mdIcon: imagesSharp
+    iosIcon: briefcaseOutline,
+    mdIcon: briefcaseSharp
   },
   {
     title: 'Community',
     url: '/community',
-    iosIcon: personOutline,
-    mdIcon: personSharp
+    iosIcon: peopleOutline,
+    mdIcon: peopleSharp
   },
   {
     title: 'Reviews',
     url: '/reviews',
-    iosIcon: videocamOutline,
-    mdIcon: videocamSharp
+    iosIcon: starOutline,
+    mdIcon: starSharp
   },
   {
     title: 'No Contact',
     url: '/noContact',
-    iosIcon: chatbubbleOutline,
-    mdIcon: archiveSharp
+    iosIcon: banOutline,
+    mdIcon: banSharp
   }
 ];
 

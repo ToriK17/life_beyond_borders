@@ -1,35 +1,14 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { Redirect, Route } from 'react-router-dom';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Route } from 'react-router-dom';
-import { useIsMobile } from './hooks/useIsMobile';
-import Menu from './components/Menu';
-import Page from './pages/Page';
-import seekingWork from './pages/SeekingWork/seekingWork';
-
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
-
-/* Theme variables */
-import './theme/variables.css';
-import community from './pages/Community/community';
-import reviews from './pages/Reviews/reviews';
-import noContact from './pages/NoContact/noContact';
+import { setupIonicReact } from '@ionic/react';
+import { businessOutline, peopleOutline, starOutline } from 'ionicons/icons';
+import SeekingWork from './pages/SeekingWork/seekingWork';
+import Community from './pages/Community/community';
+import Reviews from './pages/Reviews/reviews';
 import { LanguageProvider } from './components/LanguageContext';
 import NavBar from './components/NavBsr/navBar';
-
+import { useIsMobile } from './hooks/useIsMobile';
 
 setupIonicReact();
 
@@ -41,27 +20,52 @@ const App: React.FC = () => {
       <IonApp>
         <IonReactRouter>
           {isMobile ? (
-            <IonSplitPane contentId="main">
-              <Menu />
-              <IonRouterOutlet id="main">
-                <Route exact path="/" component={seekingWork} />
-                <Route exact path="/seekingWork" component={seekingWork} />
-                <Route exact path="/community" component={community} />
-                <Route exact path="/reviews" component={reviews} />
-                <Route exact path="/noContact" component={noContact} />
-                <Route path="/folder/:name" exact={true} component={Page} />
+            <IonTabs>
+              <IonRouterOutlet>
+                <Route exact path="/seekingWork">
+                  <SeekingWork />
+                </Route>
+                <Route exact path="/community">
+                  <Community />
+                </Route>
+                <Route exact path="/reviews">
+                  <Reviews />
+                </Route>
+                <Route exact path="/">
+                  <Redirect to="/seekingWork" />
+                </Route>
               </IonRouterOutlet>
-            </IonSplitPane>
+              <IonTabBar slot="bottom">
+                <IonTabButton tab="seekingWork" href="/seekingWork">
+                  <IonIcon icon={businessOutline} />
+                  <IonLabel>Seeking Work</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="community" href="/community">
+                  <IonIcon icon={peopleOutline} />
+                  <IonLabel>Community</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="reviews" href="/reviews">
+                  <IonIcon icon={starOutline} />
+                  <IonLabel>Reviews</IonLabel>
+                </IonTabButton>
+              </IonTabBar>
+            </IonTabs>
           ) : (
             <>
-            <NavBar />
-              <IonRouterOutlet id="main">
-                <Route exact path="/" component={seekingWork} />
-                <Route exact path="/seekingWork" component={seekingWork} />
-                <Route exact path="/community" component={community} />
-                <Route exact path="/reviews" component={reviews} />
-                <Route exact path="/noContact" component={noContact} />
-                <Route path="/folder/:name" exact={true} component={Page} />
+              <NavBar />
+              <IonRouterOutlet>
+                <Route exact path="/seekingWork">
+                  <SeekingWork />
+                </Route>
+                <Route exact path="/community">
+                  <Community />
+                </Route>
+                <Route exact path="/reviews">
+                  <Reviews />
+                </Route>
+                <Route exact path="/">
+                  <Redirect to="/seekingWork" />
+                </Route>
               </IonRouterOutlet>
             </>
           )}
